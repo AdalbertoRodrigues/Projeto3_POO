@@ -1,0 +1,50 @@
+<%@ page pageEncoding="UTF-8" %>
+<div class="navi">
+      <ul>
+        <li>
+          <a onclick="CarregarHome()">Home</a>
+        </li>
+        <li>
+          <a onclick="CarregarIncluir()">Incluir</a>
+        </li>
+        <li>
+          <a onclick="CarregarPesquisar()">Pesquisar</a>
+        </li>
+      </ul>
+    </div>
+<script type="text/javascript">
+function CarregarHome() {
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        pagina = this.responseText;
+        document.getElementById("cont").innerHTML = pagina;
+        }
+    };
+    xhttp.open("GET", "http://localhost:8084/Projeto3_POO/home.jsp?page=home", true);
+    xhttp.send();
+}
+function CarregarIncluir() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        pagina = this.responseText;
+        document.getElementById("cont").innerHTML = pagina;
+        }
+    };
+    xhttp.open("GET", "http://localhost:8084/Projeto3_POO/home.jsp?page=incluir", true);
+    xhttp.send();
+}
+function CarregarPesquisar() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        pagina = this.responseText;
+        document.getElementById("cont").innerHTML = pagina;
+        }
+    };
+    xhttp.open("GET", "http://localhost:8084/Projeto3_POO/home.jsp?page=pesquisar", true);
+    xhttp.send();
+}
+
+</script>
