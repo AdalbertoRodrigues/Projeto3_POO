@@ -25,8 +25,8 @@
     </div>
     <div class="membro">
       <img class="img-fluid memImg" src="res/imgs/member3.jpeg">
-      <h5>Fabio, o Fabio</h5>
-      <p>-</p>
+      <h5>Fabio Araujo</h5>
+      <p>Back-End</p>
       <a style="display: inline;"><img width="20%" src="res/imgs/github.png"></a>
       <a style="display: inline"><img width="20%" src="res/imgs/linkedin.png"></a>
       <a style="display: inline;"><img width="20%" src="res/imgs/facebook.png"></a>

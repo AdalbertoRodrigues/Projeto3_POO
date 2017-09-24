@@ -27,7 +27,3 @@
 <%}else if(request.getParameter("page").equals("pesquisar")){%>
     <%@include file="WEB-INF/jspf/Pesquisar.jspf" %>
 <%}%>
-        
-
-    
-
