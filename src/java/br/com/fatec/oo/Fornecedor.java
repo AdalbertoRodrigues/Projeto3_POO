@@ -7,7 +7,7 @@ public class Fornecedor {
     private int cnpj;
     private String email;
     private int telefone;
-    Endereco endereco;
+    public Endereco endereco;
 
     public String getNome() {
         return nome;
