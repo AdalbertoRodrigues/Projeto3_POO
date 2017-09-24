@@ -3,7 +3,6 @@
     Created on : 23/09/2017, 19:02:54
     Author     : Adalberto
 --%>
-<%if(request.getParameter("page") == null){%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,10 +19,3 @@
         </div> 
     </body>   
 </html>
-<%}else if(request.getParameter("page").equals("home")){%>
-    <%@include file="WEB-INF/jspf/HomeContent.jspf" %>
-<%}else if(request.getParameter("page").equals("incluir")){%>
-    <%@include file="WEB-INF/jspf/Incluir.jspf" %>
-<%}else if(request.getParameter("page").equals("pesquisar")){%>
-    <%@include file="WEB-INF/jspf/Pesquisar.jspf" %>
-<%}%>

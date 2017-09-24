@@ -20,6 +20,9 @@
              String bairro = request.getParameter("bairro");
              String cidade = request.getParameter("cidade");
              String unidadeFederativa = request.getParameter("unidadefederativa");
+            
+
+       
              
              Fornecedor f = new Fornecedor();
              
@@ -36,6 +39,7 @@
              f.endereco.setUnidadeFederativa(unidadeFederativa);
              
              Bd.getFornecedores().add(f);
+             
          } else if (request.getParameter("remove") != null){
              int i = Integer.parseInt(request.getParameter("i"));
              Bd.getFornecedores().remove(i);
@@ -46,7 +50,7 @@
             <%}%>
         <fieldset>
             <legend> Novo contato</legend>
-            <form>
+            <form if="formForn">
                    Nome:<br/>
                    <input type="text" name="nome"/><br/>
                    Razao Social:<br/>
@@ -70,8 +74,10 @@
                    <input type="text" name="unidadefederativa"/><br/>
                    
                    <br/>
-                   <input type="submit" name="add" value="Adicionar"/>
+                 <input type="submit" name="add" value="Adicionar">  
             </form>
+            
+            
         </fieldset>
         <h2>Lista</h2>
         <table border="1">
@@ -117,6 +123,5 @@
         <%}%>
                     
         </table>
-    
 
 

@@ -1,6 +1,0 @@
-<%@ page pageEncoding="UTF-8" %>
-<br>
-<h4>Pesquisar Usuário</h4>
-<form>
-Nome:<input type="text" name="nome" style="margin-left: 1%">
-</form>
