@@ -32,14 +32,13 @@
              f.setCnpj(cnpj);
              f.setEmail(email);
              f.setTelefone(telefone);
+             f.endereco = new Endereco();
              f.endereco.setLogradouro(logradouro);
              f.endereco.setNumero(numero);
              f.endereco.setBairro(bairro);
              f.endereco.setCidade(cidade);
              f.endereco.setUnidadeFederativa(unidadeFederativa);
-             
              Bd.getFornecedores().add(f);
-             
          } else if (request.getParameter("remove") != null){
              int i = Integer.parseInt(request.getParameter("i"));
              Bd.getFornecedores().remove(i);

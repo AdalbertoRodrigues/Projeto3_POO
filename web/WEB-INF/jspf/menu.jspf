@@ -5,7 +5,7 @@
           <a href="home.jsp">Home</a>
         </li>
         <li>
-          <a href="incluirForncedor.jsp">Incluir Fornecedor</a>
+          <a href="incluirFornecedor.jsp">Incluir Fornecedor</a>
         </li>
         <li>
           <a href="incluirCliente.jsp">Incluir Cliente</a>
