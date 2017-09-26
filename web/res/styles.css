@@ -35,7 +35,6 @@ html, body {
 }
 .navi a {
   display: block;
-  color: ;
   padding: 0;
   text-align: center;
   color: #777777;
@@ -66,4 +65,7 @@ html, body {
 .memImg {
   width: 90%;
   border-radius: 10%;
+}
+
+form {
 }
