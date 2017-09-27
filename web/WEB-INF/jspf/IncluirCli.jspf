@@ -98,7 +98,7 @@
                     
                         <p>Cpf:</p><input type="number" name="cpf" required/><br>
                     
-                        <p>Rg:</p><input type="number" name="rg" required/><br/>
+                        <p>Rg:</p><input type="text" name="rg" required/><br/>
                     
                         <p>Email:</p><input type="text" name="email" required/><br>
                     
