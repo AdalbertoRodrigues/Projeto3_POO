@@ -15,7 +15,7 @@ public class Cliente {
     private String rg;
     private String email;
     private int telefone;
-    private Endereco endereco;
+    public Endereco endereco;
 
     public String getNome() {
         return nome;
