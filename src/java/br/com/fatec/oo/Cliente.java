@@ -12,7 +12,7 @@ package br.com.fatec.oo;
  */
 public class Cliente {
     private String nome;
-    private String cpf;
+    private long cpf;
     private String rg;
     private String email;
     private long telefone;
@@ -26,11 +26,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public String getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 
