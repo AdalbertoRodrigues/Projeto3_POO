@@ -75,7 +75,7 @@ public class Cliente {
             || cpf.equals("33333333333") || cpf.equals("44444444444")|| cpf.equals("55555555555")
             || cpf.equals("66666666666") || cpf.equals("77777777777")|| cpf.equals("88888888888")
             || cpf.equals("99999999999")){
-                
+                setCpf("CPF inválido");
             }else{
                 //segmentando os digitos do cpf
                 for(int i =0;i<cpf.length();i++){
