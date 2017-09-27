@@ -2,7 +2,6 @@
 <%@page import="br.com.fatec.oo.Cliente"%>
 <%@page import="br.com.fatec.oo.Bd"%>
 <%@page import="br.com.fatec.oo.Endereco"%>
-<link rel="stylesheet" type="text/css" href="">
 <br>
 <h4>Incluir Cliente</h4>
 
@@ -24,7 +23,7 @@
         
          if(request.getParameter("add") != null) {
             String nome = request.getParameter("nome");
-            long cpf = Long.parseLong(request.getParameter("cpf"));
+            String cpf = request.getParameter("cpf");
             String rg = request.getParameter("rg");
             String email = request.getParameter("email");
             long telefone = Long.parseLong(request.getParameter("telefone"));
@@ -56,7 +55,7 @@
              
             int index = Integer.parseInt(request.getParameter("i"));
             String nome = request.getParameter("nome");
-            long cpf = Long.parseLong(request.getParameter("cpf"));
+            String cpf = request.getParameter("cpf");
             String rg = request.getParameter("rg");
             String email = request.getParameter("email");
             long telefone = Long.parseLong(request.getParameter("telefone"));
@@ -97,7 +96,7 @@
                     
                         <p>Nome:<p/><input type="text" name="nome"/><br>
                     
-                        <p>Cpf:</p><input type="number" name="cpf"/><br>
+                        <p>Cpf:</p><input type="text" name="cpf"/><br>
                     
                         <p>Rg:</p><input type="number" name="rg"/><br/>
                     
@@ -264,7 +263,7 @@
                         <form>
                             <td id="indice" rowspan="3"><%=i%></td>
                             <td><input type="text" name="nome" value="<%=c.getNome()%>"></cd>
-                            <td><input type="number" name="cpf" value="<%=c.getCpf()%>"></td>
+                            <td><input type="text" name="cpf" value="<%=c.getCpf()%>"></td>
                             <td><input type="number" name="rg" value="<%=c.getRg()%>"></td>
                             <td><input type="text" name="email" value="<%=c.getEmail()%>"></td>
                             <td><input type="number" name="telefone" value="<%=c.getTelefone()%>"></td>
