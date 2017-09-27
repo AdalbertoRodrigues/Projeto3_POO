@@ -12,7 +12,7 @@ package br.com.fatec.oo;
  */
 public class Cliente {
     private String nome;
-    private long cpf;
+    private String cpf;
     private String rg;
     private String email;
     private long telefone;
@@ -26,11 +26,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -66,8 +66,7 @@ public class Cliente {
         this.endereco = endereco;
     }
     
-    public boolean validarCPF(){
-        String cpf = Long.toString(this.cpf);
+    public void validarCPF(String cpf){
         int j=0,  dig1 = 0, dig2 =0;
         int[] n = new int[11];        
         try{
@@ -76,9 +75,6 @@ public class Cliente {
             || cpf.equals("33333333333") || cpf.equals("44444444444")|| cpf.equals("55555555555")
             || cpf.equals("66666666666") || cpf.equals("77777777777")|| cpf.equals("88888888888")
             || cpf.equals("99999999999")){
-
-                System.out.println("CPF inválido");
-                return false;
                 
             }else{
                 //segmentando os digitos do cpf
@@ -108,17 +104,14 @@ public class Cliente {
                 System.out.println("Segundo dígito: " + dig2);
 
                 if(dig1 == n[9] && dig2 == n[10]){
-                    System.out.println("CPF válido");
-                    return true;
+                    setCpf(cpf);
                     
                 }else{
-                    System.out.println("CPF inválido");
-                    return false;
+                    setCpf("CPF inválido");
                 }
             }
             }catch(Exception ex){
-            System.out.println("Houve um erro durante a validação");
-            return false;
+                    setCpf("Houve um erro na validação do cpf");
         }
     }
 }
