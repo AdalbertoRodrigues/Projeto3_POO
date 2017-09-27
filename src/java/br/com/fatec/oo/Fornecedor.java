@@ -4,9 +4,9 @@ public class Fornecedor {
 
     private String nome;
     private String razaoSocial;
-    private int cnpj;
+    private long cnpj;
     private String email;
-    private int telefone;
+    private long telefone;
     public Endereco endereco;
 
     public String getNome() {
@@ -25,11 +25,11 @@ public class Fornecedor {
         this.razaoSocial = razaoSocial;
     }
 
-    public int getCnpj() {
+    public long getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(int cnpj) {
+    public void setCnpj(long cnpj) {
         this.cnpj = cnpj;
     }
 
@@ -41,11 +41,11 @@ public class Fornecedor {
         this.email = email;
     }
 
-    public int getTelefone() {
+    public long getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
  
