@@ -1,0 +1,205 @@
+<%@ page pageEncoding="UTF-8" %>
+<%@page import="br.com.fatec.oo.Fornecedor"%>
+<%@page import="br.com.fatec.oo.Bd"%>
+<%@page import="br.com.fatec.oo.Endereco"%>
+<br>
+<h4>Incluir Fornecedor</h4>
+
+<br><br>
+            
+        <%try {
+        
+         if(request.getParameter("add") != null) {
+             String nome = request.getParameter("nome");
+             String razaosocial = request.getParameter("razaosocial");
+             int cnpj = Integer.parseInt(request.getParameter("cnpj"));
+             String email = request.getParameter("email");
+             int telefone = Integer.parseInt(request.getParameter("telefone"));
+             String logradouro = request.getParameter("logradouro");
+             int numero = Integer.parseInt(request.getParameter("numero"));
+             String bairro = request.getParameter("bairro");
+             String cidade = request.getParameter("cidade");
+             String unidadeFederativa = request.getParameter("unidadefederativa");
+            
+
+       
+             
+             Fornecedor f = new Fornecedor();
+             
+             
+             f.setNome(nome);
+             f.setRazaoSocial(razaosocial);
+             f.setCnpj(cnpj);
+             f.setEmail(email);
+             f.setTelefone(telefone);
+             f.endereco = new Endereco();
+             f.endereco.setLogradouro(logradouro);
+             f.endereco.setNumero(numero);
+             f.endereco.setBairro(bairro);
+             f.endereco.setCidade(cidade);
+             f.endereco.setUnidadeFederativa(unidadeFederativa);
+             Bd.getFornecedores().add(f);
+         } else if (request.getParameter("remove") != null){
+             int i = Integer.parseInt(request.getParameter("i"));
+             Bd.getFornecedores().remove(i);
+         }
+         else if (request.getParameter("salva") != null) {
+             
+             int index = Integer.parseInt(request.getParameter("i"));
+             String nome = request.getParameter("nome");
+             String razaosocial = request.getParameter("razaosocial");
+             int cnpj = Integer.parseInt(request.getParameter("cnpj"));
+             String email = request.getParameter("email");
+             int telefone = Integer.parseInt(request.getParameter("telefone"));
+             String logradouro = request.getParameter("logradouro");
+             int numero = Integer.parseInt(request.getParameter("numero"));
+             String bairro = request.getParameter("bairro");
+             String cidade = request.getParameter("cidade");
+             String unidadeFederativa = request.getParameter("unidadefederativa");
+                 
+             Fornecedor f = new Fornecedor();
+                
+             f.setNome(nome);
+             f.setRazaoSocial(razaosocial);
+             f.setCnpj(cnpj);
+             f.setEmail(email);
+             f.setTelefone(telefone);
+             f.endereco = new Endereco();
+             f.endereco.setLogradouro(logradouro);
+             f.endereco.setNumero(numero);
+             f.endereco.setBairro(bairro);
+             f.endereco.setCidade(cidade);
+             f.endereco.setUnidadeFederativa(unidadeFederativa);
+             Bd.getFornecedores().set(index, f);
+             
+             
+         }
+            
+        } catch(Exception ex) {%>
+        <div><h2>Erro ao processar o comando: <%=ex.getMessage()%></h2></div>
+            <%}%>
+        <fieldset>
+            <legend> Novo contato</legend>
+            <form>
+                   Nome:
+                   <input type="text" name="nome"/><br>
+                   Razao Social:
+                   <input type="text" name="razaosocial"/><br>
+                   CNPJ:
+                   <input type="number" name="cnpj"/><br/>
+                   Email:
+                   <input type="text" name="email"/><br>
+                   Telefone:
+                   <input type="number" name="telefone"/><br/>
+ 
+                   <br><h5>Endereço</h5>
+                   Unidade Federativa:
+                   <input type="text" name="unidadefederativa"/><br>
+                   Cidade:
+                   <input type="text" name="cidade"/><br>   
+                   Bairro:
+                   <input type="text" name="bairro"/><br>
+                   Número:
+                   <input type="text" name="numero"/><br>
+                   Logradouro:
+                   <input type="text" name="logradouro"/><br>
+                   <br/>
+                 <input type="submit" name="add" value="Adicionar">  
+            </form>
+            
+            
+        </fieldset>
+        <h2>Lista</h2>
+        <center><table class="table table-stripped">
+            <tr>
+                <th>Índice</th>
+                <th>Nome</th>
+                <th>Razao Social</th>
+                <th>CNPJ</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Logradouro</th>
+                <th>Numero</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>UF</th>
+                <th></th>
+            </tr>
+            
+            <%
+                if(request.getParameter("altera") == null) {
+                    for (int i=0; i<Bd.getFornecedores().size(); i++){%>
+                    <%Fornecedor f= Bd.getFornecedores().get(i);
+
+                    %>
+                    <tr>
+                        <td><%=i%></td>
+                        <td><%=f.getNome()%></td>
+                        <td><%=f.getRazaoSocial()%></td>
+                        <td><%=f.getCnpj()%></td>
+                        <td><%=f.getEmail()%></td>
+                        <td><%=f.getTelefone()%></td>
+                        <td><%=f.endereco.getLogradouro()%></td>
+                        <td><%=f.endereco.getNumero()%></td>
+                        <td><%=f.endereco.getBairro()%></td>
+                        <td><%=f.endereco.getCidade()%></td>
+                        <td><%=f.endereco.getUnidadeFederativa()%></td>
+
+                    <td>
+                        <form>
+                            <input type="hidden" name="i" value="<%=i%>"/>
+                            <input type="submit" name="remove" value="Excluir"/>
+                            <input type="submit" name="altera" value="Alterar"/>
+                        </form>
+                    </td>
+                    </tr>
+        <%}}
+        else {
+            for (int i=0; i<Bd.getFornecedores().size(); i++){
+                Fornecedor f = Bd.getFornecedores().get(i);
+                if(i != Integer.parseInt(request.getParameter("i"))){%>
+                    <tr>
+                        <td><%=i%></td>
+                        <td><%=f.getNome()%></td>
+                        <td><%=f.getRazaoSocial()%></td>
+                        <td><%=f.getCnpj()%></td>
+                        <td><%=f.getEmail()%></td>
+                        <td><%=f.getTelefone()%></td>
+                        <td><%=f.endereco.getLogradouro()%></td>
+                        <td><%=f.endereco.getNumero()%></td>
+                        <td><%=f.endereco.getBairro()%></td>
+                        <td><%=f.endereco.getCidade()%></td>
+                        <td><%=f.endereco.getUnidadeFederativa()%></td>
+
+                    <td>
+                        <form>
+                            <input type="hidden" name="i" value="<%=i%>"/>
+                            <input type="submit" name="remove" value="Excluir"/>
+                            <input type="submit" name="altera" value="Alterar"/>
+                        </form>
+                    </td>
+                    </tr>
+                    <%}else {%>
+                    <tr>
+                        <form>
+                        <td><%=i%></td>
+                        <td><input type="text" name="nome" value="<%=f.getNome()%>"></cd>
+                        <td><input type="text" name="razaosocial" value="<%=f.getRazaoSocial()%>"></td>
+                        <td><input type="number" name="cnpj" value="<%=f.getCnpj()%>"></td>
+                        <td><input type="text" name="email" value="<%=f.getEmail()%>"></td>
+                        <td><input type="number" name="telefone" value="<%=f.getTelefone()%>"></td>
+                        <td><input type="text" name="logradouro" value="<%=f.endereco.getLogradouro()%>"/></td>
+                        <td><input type="number" name="numero" value="<%=f.endereco.getNumero()%>"></td>
+                        <td><input type="text" name="bairro" value="<%=f.endereco.getBairro()%>"></td>
+                        <td><input type="text" name="cidade" value="<%=f.endereco.getCidade()%>"></td>
+                        <td><input type="text" name="unidadefederativa" value="<%=f.endereco.getUnidadeFederativa()%>"></td>
+                        <input type="hidden" name="i" value="<%=i%>"/>
+                        <td><input type="submit" value="Salvar" name="salva"</td>
+                        </form>
+                    </tr>
+                            
+        <%}}}%>
+                    
+            </table></center>
+
+
