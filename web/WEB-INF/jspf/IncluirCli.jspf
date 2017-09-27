@@ -94,29 +94,29 @@
                     
                     <form>
                     
-                        <p>Nome:<p/><input type="text" name="nome"/><br>
+                        <p>Nome:<p/><input type="text" name="nome" required/><br>
                     
-                        <p>Cpf:</p><input type="number" name="cpf"/><br>
+                        <p>Cpf:</p><input type="number" name="cpf" required/><br>
                     
-                        <p>Rg:</p><input type="number" name="rg"/><br/>
+                        <p>Rg:</p><input type="number" name="rg" required/><br/>
                     
-                        <p>Email:</p><input type="text" name="email"/><br>
+                        <p>Email:</p><input type="text" name="email" required/><br>
                     
-                        <p>Telefone:</p><input type="number" name="telefone"/><br/>
+                        <p>Telefone:</p><input type="number" name="telefone" required/><br/>
                 </div>
                 
                 <div class="col-sm-6">
                     <h5>Endereço</h5>
                     <p>Unidade Federativa:</p>
-                    <input type="text" name="unidadefederativa"/><br>
+                    <input type="text" name="unidadefederativa" required/><br>
                     <p>Cidade:</p>
-                    <input type="text" name="cidade"/><br>   
+                    <input type="text" name="cidade" required/><br>   
                     <p>Bairro:</p>
-                    <input type="text" name="bairro"/><br>
+                    <input type="text" name="bairro" required/><br>
                     <p>Número:</p>
-                    <input type="text" name="numero"/><br>
+                    <input type="text" name="numero" required/><br>
                     <p>Logradouro</p>
-                    <input type="text" name="logradouro"/><br>
+                    <input type="text" name="logradouro" required/><br>
                     <br/>
                 </div>
             </div>
@@ -262,11 +262,11 @@
                     <tr>
                         <form>
                             <td id="indice" rowspan="3"><%=i%></td>
-                            <td><input type="text" name="nome" value="<%=c.getNome()%>"></cd>
-                            <td><input type="number" name="cpf" value="<%=c.getCpf()%>"></td>
-                            <td><input type="text" name="rg" value="<%=c.getRg()%>"></td>
-                            <td><input type="text" name="email" value="<%=c.getEmail()%>"></td>
-                            <td><input type="number" name="telefone" value="<%=c.getTelefone()%>"></td>
+                            <td><input type="text" name="nome" value="<%=c.getNome()%>" required></cd>
+                            <td><input type="number" name="cpf" value="<%=c.getCpf()%>" required></td>
+                            <td><input type="text" name="rg" value="<%=c.getRg()%>" required></td>
+                            <td><input type="text" name="email" value="<%=c.getEmail()%>" required></td>
+                            <td><input type="number" name="telefone" value="<%=c.getTelefone()%>" required></td>
                             <td class="bordadireita"></td>
                         </tr>
                         
@@ -282,11 +282,11 @@
                         </tr> 
                         
                         <tr>
-                            <td id="bordabaixo"><input type="text" name="logradouro" value="<%=c.endereco.getLogradouro()%>"/></td>
-                            <td id="bordabaixo"><input type="number" name="numero" value="<%=c.endereco.getNumero()%>"></td>
-                            <td id="bordabaixo"><input type="text" name="bairro" value="<%=c.endereco.getBairro()%>"></td>
-                            <td id="bordabaixo"><input type="text" name="cidade" value="<%=c.endereco.getCidade()%>"></td>
-                            <td id="bordabaixo"><input type="text" name="unidadefederativa" value="<%=c.endereco.getUnidadeFederativa()%>"></td>
+                            <td id="bordabaixo"><input type="text" name="logradouro" value="<%=c.endereco.getLogradouro()%>" required/></td>
+                            <td id="bordabaixo"><input type="number" name="numero" value="<%=c.endereco.getNumero()%>" required></td>
+                            <td id="bordabaixo"><input type="text" name="bairro" value="<%=c.endereco.getBairro()%>" required></td>
+                            <td id="bordabaixo"><input type="text" name="cidade" value="<%=c.endereco.getCidade()%>" required></td>
+                            <td id="bordabaixo"><input type="text" name="unidadefederativa" value="<%=c.endereco.getUnidadeFederativa()%>" required></td>
                             <td id="bordabaixo" class="bordadireita"></td>
                         </form>
                     </tr>
