@@ -1,7 +1,7 @@
 <%-- 
-    Document   : incluir
-    Created on : 24/09/2017, 18:33:44
-    Author     : Adalberto
+    Document   : incluirCliente
+    Created on : 26/09/2017, 23:39:25
+    Author     : LuizMaciel
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,7 +14,7 @@
         
         <div class="conteudo" id="cont">
             
-            <%@include file="WEB-INF/jspf/IncluirForn.jspf"%>
+            <%@include file="WEB-INF/jspf/IncluirCli.jspf"%>
         </div> 
 
     </body>

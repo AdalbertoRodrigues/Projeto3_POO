@@ -1,0 +1,300 @@
+<%@ page pageEncoding="UTF-8" %>
+<%@page import="br.com.fatec.oo.Fornecedor"%>
+<%@page import="br.com.fatec.oo.Bd"%>
+<%@page import="br.com.fatec.oo.Endereco"%>
+<br>
+<h4>Incluir Fornecedor</h4>
+
+<style>
+    
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+    
+</style>
+
+<br><br>
+            
+        <%try {
+        
+         if(request.getParameter("add") != null) {
+             String nome = request.getParameter("nome");
+             String razaosocial = request.getParameter("razaosocial");
+             long cnpj = Long.parseLong(request.getParameter("cnpj"));
+             String email = request.getParameter("email");
+             long telefone = Long.parseLong(request.getParameter("telefone"));
+             String logradouro = request.getParameter("logradouro");
+             int numero = Integer.parseInt(request.getParameter("numero"));
+             String bairro = request.getParameter("bairro");
+             String cidade = request.getParameter("cidade");
+             String unidadeFederativa = request.getParameter("unidadefederativa");
+            
+
+       
+             
+             Fornecedor f = new Fornecedor();
+             
+             
+             f.setNome(nome);
+             f.setRazaoSocial(razaosocial);
+             f.setCnpj(cnpj);
+             f.setEmail(email);
+             f.setTelefone(telefone);
+             f.endereco = new Endereco();
+             f.endereco.setLogradouro(logradouro);
+             f.endereco.setNumero(numero);
+             f.endereco.setBairro(bairro);
+             f.endereco.setCidade(cidade);
+             f.endereco.setUnidadeFederativa(unidadeFederativa);
+             Bd.getFornecedores().add(f);
+         } else if (request.getParameter("remove") != null){
+             int i = Integer.parseInt(request.getParameter("i"));
+             Bd.getFornecedores().remove(i);
+         }
+         else if (request.getParameter("salva") != null) {
+             
+             int index = Integer.parseInt(request.getParameter("i"));
+             String nome = request.getParameter("nome");
+             String razaosocial = request.getParameter("razaosocial");
+             long cnpj = Long.parseLong(request.getParameter("cnpj"));
+             String email = request.getParameter("email");
+             long telefone = Long.parseLong(request.getParameter("telefone"));
+             String logradouro = request.getParameter("logradouro");
+             int numero = Integer.parseInt(request.getParameter("numero"));
+             String bairro = request.getParameter("bairro");
+             String cidade = request.getParameter("cidade");
+             String unidadeFederativa = request.getParameter("unidadefederativa");
+                 
+             Fornecedor f = new Fornecedor();
+                
+             f.setNome(nome);
+             f.setRazaoSocial(razaosocial);
+             f.setCnpj(cnpj);
+             f.setEmail(email);
+             f.setTelefone(telefone);
+             f.endereco = new Endereco();
+             f.endereco.setLogradouro(logradouro);
+             f.endereco.setNumero(numero);
+             f.endereco.setBairro(bairro);
+             f.endereco.setCidade(cidade);
+             f.endereco.setUnidadeFederativa(unidadeFederativa);
+             Bd.getFornecedores().set(index, f);
+             
+             
+         }
+            
+        } catch(Exception ex) {%>
+        <div><h2>Erro ao processar o comando: <%=ex.getMessage()%></h2></div>
+            <%}%>
+        <fieldset>
+            
+            <div class="row">
+                <div class="col-sm-6">
+            
+                    <form>
+                        <h5>Dados da empresa</h4>
+                        <p>Nome da empresa:</p>
+                        <input type="text" name="nome"/><br>
+                        <p>Razão social:</p>
+                        <input type="text" name="razaosocial"/><br>
+                        <p>Cnpj:</p>
+                        <input type="number" name="cnpj"/><br/>
+                        <p>Email:</p>
+                        <input type="text" name="email"/><br>
+                        <p>Telefone:</p>
+                        <input type="number" name="telefone"/><br/>
+                        
+                </div>
+                <div class="col-sm-6">
+                        <h5>Endereço</h5>
+                        <p>Unidade Federativa:</p>
+                        <input type="text" name="unidadefederativa"/><br>
+                        <p>Cidade:</p>
+                        <input type="text" name="cidade"/><br>   
+                        <p>Bairro:</p>
+                        <input type="text" name="bairro"/><br>
+                        <p>Numero:</p>
+                        <input type="text" name="numero"/><br>
+                        <p>Logradouro:</p>
+                        <input type="text" name="logradouro"/><br>
+                        <br/>
+                </div>
+            </div>
+            <input type="submit" name="add" value="Adicionar">  
+            
+            </form>
+        </fieldset>
+        
+        <h2>Lista</h2>
+        <center><table class="table table-stripped">
+            <tr style="border: 2px solid black;">
+                <th>Índice</th>
+                <th>Nome</th>
+                <th>Razao Social</th>
+                <th>Cnpj</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th></th>
+            </tr>
+            
+            
+            <style>
+                        
+                #indice{
+                    text-align: center;
+                    vertical-align: middle;
+                    border-bottom: 2px solid; border-left: 2px solid; 
+                }
+                
+                #bordabaixo{
+                    border-bottom: 2px solid;
+                }
+                        
+                .bordadireita{
+                    border-right: 2px solid;
+                }
+                        
+            </style>
+            
+            
+            <%
+                if(request.getParameter("altera") == null) {
+                    
+                    if(Bd.getFornecedores().size()==0){
+                        
+                    %>
+                    
+                    <tr style="border: 2px solid black;">
+                        <th>Logradouro</th>
+                        <th>Numero</th>
+                        <th>Bairro</th>
+                        <th>Cidade</th>
+                        <th>UF</th>
+                        <th></th>
+                        <th></th>
+                    </tr> 
+                        
+                    <%}
+                    
+                    for (int i=0; i<Bd.getFornecedores().size(); i++){%>
+                    <%Fornecedor f= Bd.getFornecedores().get(i);
+
+                    %>
+                    
+                    <tr>
+                        <td id="indice" rowspan="3"><%=i%></td>
+                        <td><%=f.getNome()%></td>
+                        <td><%=f.getRazaoSocial()%></td>
+                        <td><%=f.getCnpj()%></td>
+                        <td><%=f.getEmail()%></td>
+                        <td><%=f.getTelefone()%></td>
+                        <td class="bordadireita">
+                            <form>
+                                <input type="hidden" name="i" value="<%=i%>"/>
+                                <input type="submit" name="altera" value="Alterar"/>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Logradouro</th>
+                        <th>Numero</th>
+                        <th>Bairro</th>
+                        <th>Cidade</th>
+                        <th>UF</th>
+                        <th class="bordadireita"></th>
+                            
+                    </tr>
+                    
+                    <tr>
+                        <td id="bordabaixo"><%=f.endereco.getLogradouro()%></td>
+                        <td id="bordabaixo"><%=f.endereco.getNumero()%></td>
+                        <td id="bordabaixo"><%=f.endereco.getBairro()%></td>
+                        <td id="bordabaixo"><%=f.endereco.getCidade()%></td>
+                        <td id="bordabaixo"><%=f.endereco.getUnidadeFederativa()%></td>
+                        <td id="bordabaixo" class="bordadireita">
+                            <form>
+                                <input type="hidden" name="i" value="<%=i%>"/>
+                                
+                                <input type="submit" name="remove" value="Excluir"/>
+                            </form>
+                        </td>
+                    </tr>
+                    
+        <%}}//Se o botão alterar for pressionado
+        else {
+            for (int i=0; i<Bd.getFornecedores().size(); i++){
+                Fornecedor f = Bd.getFornecedores().get(i);
+                if(i != Integer.parseInt(request.getParameter("i"))){%>
+                    <tr>
+                        <td id="indice" rowspan="3"><%=i%></td>
+                        <td><%=f.getNome()%></td>
+                        <td><%=f.getRazaoSocial()%></td>
+                        <td><%=f.getCnpj()%></td>
+                        <td><%=f.getEmail()%></td>
+                        <td><%=f.getTelefone()%></td>
+                        <td class="bordadireita">
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th>Logradouro</th>
+                        <th>Numero</th>
+                        <th>Bairro</th>
+                        <th>Cidade</th>
+                        <th>UF</th>
+                        <th class="bordadireita"></th>
+                    </tr> 
+                    
+                    <tr>
+                        <td id="bordabaixo"><%=f.endereco.getLogradouro()%></td>
+                    
+                    
+                        <td id="bordabaixo"><%=f.endereco.getNumero()%></td>
+                        <td id="bordabaixo"><%=f.endereco.getBairro()%></td>
+                        <td id="bordabaixo"><%=f.endereco.getCidade()%></td>
+                        <td id="bordabaixo"><%=f.endereco.getUnidadeFederativa()%></td>
+
+                        <td id="bordabaixo" class="bordadireita"></td>
+                    </tr>
+                    
+                    <%}else {//Campos para editar as informações%>
+                    <tr>
+                        <form>
+                            <td id="indice" rowspan="3"><%=i%></td>
+                            <td><input type="text" name="nome" value="<%=f.getNome()%>"></cd>
+                            <td><input type="text" name="razaosocial" value="<%=f.getRazaoSocial()%>"></td>
+                            <td><input type="number" name="cnpj" value="<%=f.getCnpj()%>"></td>
+                            <td><input type="text" name="email" value="<%=f.getEmail()%>"></td>
+                            <td><input type="number" name="telefone" value="<%=f.getTelefone()%>"></td>
+                            <td class="bordadireita"></td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Logradouro</th>
+                            <th>Numero</th>
+                            <th>Bairro</th>
+                            <th>Cidade</th>
+                            <th>UF</th>
+                            <th class="bordadireita">
+                            <input type="hidden" name="i" value="<%=i%>"/>
+                            <input type="submit" value="Salvar" name="salva"</th>
+                        </tr> 
+                        
+                        <tr>
+                            <td id="bordabaixo"><input type="text" name="logradouro" value="<%=f.endereco.getLogradouro()%>"/></td>
+                            <td id="bordabaixo"><input type="number" name="numero" value="<%=f.endereco.getNumero()%>"></td>
+                            <td id="bordabaixo"><input type="text" name="bairro" value="<%=f.endereco.getBairro()%>"></td>
+                            <td id="bordabaixo"><input type="text" name="cidade" value="<%=f.endereco.getCidade()%>"></td>
+                            <td id="bordabaixo"><input type="text" name="unidadefederativa" value="<%=f.endereco.getUnidadeFederativa()%>"></td>
+                            <td id="bordabaixo" class="bordadireita"></td>
+                        </form>
+                    </tr>
+                            
+        <%}}}%>
+                    
+            </table></center>
