@@ -98,27 +98,27 @@
                     <form>
                         <h5>Dados da empresa</h4>
                         <p>Nome da empresa:</p>
-                        <input type="text" name="nome"/><br>
+                        <input type="text" name="nome" required/><br>
                         <p>Razão social:</p>
-                        <input type="text" name="razaosocial"/><br>
+                        <input type="text" name="razaosocial" required/><br>
                         <p>Cnpj:</p>
-                        <input type="number" name="cnpj"/><br/>
+                        <input type="number" name="cnpj" required/><br/>
                         <p>Email:</p>
-                        <input type="text" name="email"/><br>
+                        <input type="text" name="email" required/><br>
                         <p>Telefone:</p>
-                        <input type="number" name="telefone"/><br/>
+                        <input type="number" name="telefone" required/><br/>
                         
                 </div>
                 <div class="col-sm-6">
                         <h5>Endereço</h5>
                         <p>Unidade Federativa:</p>
-                        <input type="text" name="unidadefederativa"/><br>
+                        <input type="text" name="unidadefederativa" required/><br>
                         <p>Cidade:</p>
-                        <input type="text" name="cidade"/><br>   
+                        <input type="text" name="cidade" required/><br>   
                         <p>Bairro:</p>
-                        <input type="text" name="bairro"/><br>
+                        <input type="text" name="bairro" required/><br>
                         <p>Numero:</p>
-                        <input type="text" name="numero"/><br>
+                        <input type="text" name="numero" required/><br>
                         <p>Logradouro:</p>
                         <input type="text" name="logradouro"/><br>
                         <br/>
@@ -266,11 +266,11 @@
                     <tr>
                         <form>
                             <td id="indice" rowspan="3"><%=i%></td>
-                            <td><input type="text" name="nome" value="<%=f.getNome()%>"></cd>
-                            <td><input type="text" name="razaosocial" value="<%=f.getRazaoSocial()%>"></td>
-                            <td><input type="number" name="cnpj" value="<%=f.getCnpj()%>"></td>
-                            <td><input type="text" name="email" value="<%=f.getEmail()%>"></td>
-                            <td><input type="number" name="telefone" value="<%=f.getTelefone()%>"></td>
+                            <td><input type="text" name="nome" value="<%=f.getNome()%>" required></cd>
+                            <td><input type="text" name="razaosocial" value="<%=f.getRazaoSocial()%>" required></td>
+                            <td><input type="number" name="cnpj" value="<%=f.getCnpj()%>" required></td>
+                            <td><input type="text" name="email" value="<%=f.getEmail()%>" required></td>
+                            <td><input type="number" name="telefone" value="<%=f.getTelefone()%>" required></td>
                             <td class="bordadireita"></td>
                         </tr>
                         
@@ -287,10 +287,10 @@
                         
                         <tr>
                             <td id="bordabaixo"><input type="text" name="logradouro" value="<%=f.endereco.getLogradouro()%>"/></td>
-                            <td id="bordabaixo"><input type="number" name="numero" value="<%=f.endereco.getNumero()%>"></td>
-                            <td id="bordabaixo"><input type="text" name="bairro" value="<%=f.endereco.getBairro()%>"></td>
-                            <td id="bordabaixo"><input type="text" name="cidade" value="<%=f.endereco.getCidade()%>"></td>
-                            <td id="bordabaixo"><input type="text" name="unidadefederativa" value="<%=f.endereco.getUnidadeFederativa()%>"></td>
+                            <td id="bordabaixo"><input type="number" name="numero" value="<%=f.endereco.getNumero()%>" required></td>
+                            <td id="bordabaixo"><input type="text" name="bairro" value="<%=f.endereco.getBairro()%>" required></td>
+                            <td id="bordabaixo"><input type="text" name="cidade" value="<%=f.endereco.getCidade()%>" required></td>
+                            <td id="bordabaixo"><input type="text" name="unidadefederativa" value="<%=f.endereco.getUnidadeFederativa()%>" required></td>
                             <td id="bordabaixo" class="bordadireita"></td>
                         </form>
                     </tr>
