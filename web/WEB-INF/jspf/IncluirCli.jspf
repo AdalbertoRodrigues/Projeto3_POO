@@ -36,7 +36,7 @@
             Cliente c = new Cliente();
             
             c.setNome(nome);
-            c.setCpf(cpf);
+            c.validarCPF(cpf);
             c.setEmail(email);
             c.setRg(rg);
             c.setTelefone(telefone);
@@ -68,7 +68,7 @@
             Cliente c = new Cliente();
                
             c.setNome(nome);
-            c.setCpf(cpf);
+            c.validarCPF(cpf);
             c.setEmail(email);
             c.setRg(rg);
             c.setTelefone(telefone);
