@@ -116,7 +116,7 @@
                     <p>Número:</p>
                     <input type="text" name="numero" required/><br>
                     <p>Logradouro</p>
-                    <input type="text" name="logradouro" required/><br>
+                    <input type="text" name="logradouro"/><br>
                     <br/>
                 </div>
             </div>
@@ -282,7 +282,7 @@
                         </tr> 
                         
                         <tr>
-                            <td id="bordabaixo"><input type="text" name="logradouro" value="<%=c.endereco.getLogradouro()%>" required/></td>
+                            <td id="bordabaixo"><input type="text" name="logradouro" value="<%=c.endereco.getLogradouro()%>"/></td>
                             <td id="bordabaixo"><input type="number" name="numero" value="<%=c.endereco.getNumero()%>" required></td>
                             <td id="bordabaixo"><input type="text" name="bairro" value="<%=c.endereco.getBairro()%>" required></td>
                             <td id="bordabaixo"><input type="text" name="cidade" value="<%=c.endereco.getCidade()%>" required></td>
